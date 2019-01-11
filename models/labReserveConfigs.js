@@ -19,10 +19,12 @@ var labReserveConfigs = new mongoose.Schema({
 })
 
 
-labReserveConfigs.statics.findByDate = function (labId,weekNum,callback) {
+labReserveConfigs.statics.findByWeekNum = function (labId,weekNum,callback) {
     this.find({labId:labId,weekNum:parseInt(weekNum)},callback)
 }
-
+labReserveConfigs.statics.findByDate = function(labId,date,callback){
+    this.find({labId:labId,date:date},callback)
+}
 
 var labReserveConfigsModel = mongoose.model('labReserveConfigs',labReserveConfigs)
 

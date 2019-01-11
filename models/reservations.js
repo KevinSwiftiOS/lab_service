@@ -3,10 +3,9 @@
 var mongoose = require('../common/db')
 
 var reservations =  new mongoose.Schema({
-    id:Number,
     userId:Number,
     username:String,
-    userType:String,
+    userType:Number,
     userPhone:String,
     labId:Number,
     labName:String,
