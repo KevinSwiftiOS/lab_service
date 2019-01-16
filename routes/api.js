@@ -62,7 +62,8 @@ router.post('/getReserveOneWeek', function (req, res, next) {
                 sectionWeek[i][j] = true;
             }
         }
-        //获取到的七天数据遍历，提取每天的10节课的预约情况
+        // console.log(reserveWeek);
+        // 获取到的七天数据遍历，提取每天的10节课的预约情况
         for (var i = 0; i <= reserveWeek.length - 1; i++) {
             for (var j = 1; j <= 10; j++) {
                 if (j == 10) {
@@ -72,6 +73,7 @@ router.post('/getReserveOneWeek', function (req, res, next) {
                 }
             }
         }
+        console.log(sectionWeek)
         return res.json({retcode: 0, data: {sectionWeek: sectionWeek}})
     })
 })
@@ -119,4 +121,129 @@ router.post('/changeReserve', function (req, res, next) {
 
 
 })
+
+
+//添加预约控制
+
+// router.get('/addlabReserveConfigs',function (req, res, next) {
+//     var model = new labReserveConfigs({
+//         labId:0,
+//         date:"2019-01-15",
+//         sectionOpened01:true,
+//         sectionOpened02:false,
+//         sectionOpened03:true,
+//         sectionOpened04:false,
+//         sectionOpened05:false,
+//         sectionOpened06:true,
+//         sectionOpened07:false,
+//         sectionOpened08:true,
+//         sectionOpened09:false,
+//         sectionOpened10:true,
+//         weekNum:201902
+//     })
+//     model.save(function () {
+//         var model = new labReserveConfigs({
+//             labId:0,
+//             date:"2019-01-15",
+//             sectionOpened01:false,
+//             sectionOpened02:true,
+//             sectionOpened03:true,
+//             sectionOpened04:false,
+//             sectionOpened05:false,
+//             sectionOpened06:true,
+//             sectionOpened07:false,
+//             sectionOpened08:true,
+//             sectionOpened09:false,
+//             sectionOpened10:true,
+//             weekNum:201902
+//         })
+//         model.save(function () {
+//             var model = new labReserveConfigs({
+//                 labId:0,
+//                 date:"2019-01-16",
+//                 sectionOpened01:true,
+//                 sectionOpened02:false,
+//                 sectionOpened03:false,
+//                 sectionOpened04:false,
+//                 sectionOpened05:true,
+//                 sectionOpened06:true,
+//                 sectionOpened07:false,
+//                 sectionOpened08:false,
+//                 sectionOpened09:false,
+//                 sectionOpened10:true,
+//                 weekNum:201902
+//             })
+//             model.save(function(){
+//                 var model = new labReserveConfigs({
+//                     labId:0,
+//                     date:"2019-01-17",
+//                     sectionOpened01:false,
+//                     sectionOpened02:false,
+//                     sectionOpened03:true,
+//                     sectionOpened04:false,
+//                     sectionOpened05:true,
+//                     sectionOpened06:true,
+//                     sectionOpened07:false,
+//                     sectionOpened08:true,
+//                     sectionOpened09:false,
+//                     sectionOpened10:true,
+//                     weekNum:201902
+//                 })
+//                 model.save(function(){
+//                     var model = new labReserveConfigs({
+//                         labId:0,
+//                         date:"2019-01-18",
+//                         sectionOpened01:false,
+//                         sectionOpened02:true,
+//                         sectionOpened03:true,
+//                         sectionOpened04:false,
+//                         sectionOpened05:true,
+//                         sectionOpened06:true,
+//                         sectionOpened07:true,
+//                         sectionOpened08:false,
+//                         sectionOpened09:false,
+//                         sectionOpened10:true,
+//                         weekNum:201902
+//                     })
+//                     model.save(function(){
+//                         var model = new labReserveConfigs({
+//                             labId:0,
+//                             date:"2019-01-19",
+//                             sectionOpened01:true,
+//                             sectionOpened02:false,
+//                             sectionOpened03:true,
+//                             sectionOpened04:false,
+//                             sectionOpened05:false,
+//                             sectionOpened06:true,
+//                             sectionOpened07:true,
+//                             sectionOpened08:false,
+//                             sectionOpened09:false,
+//                             sectionOpened10:true,
+//                             weekNum:201902
+//                         })
+//                         model.save(function () {
+//                             var model = new labReserveConfigs({
+//                                 labId:0,
+//                                 date:"2019-01-20",
+//                                 sectionOpened01:false,
+//                                 sectionOpened02:true,
+//                                 sectionOpened03:true,
+//                                 sectionOpened04:false,
+//                                 sectionOpened05:true,
+//                                 sectionOpened06:true,
+//                                 sectionOpened07:true,
+//                                 sectionOpened08:false,
+//                                 sectionOpened09:false,
+//                                 sectionOpened10:true,
+//                                 weekNum:201902
+//                             })
+//                             model.save()
+//                         })
+//                     })
+//                 })
+//             })
+//         })
+//     })
+//     return res.json({retcode:0})
+// })
 module.exports = router;
